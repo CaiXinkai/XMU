@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cai Xinkai — Academic Profile</title>
+  <style>
+    :root {
+      --accent:#2b6cb0;
+      --muted:#555;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --radius:12px;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:#111;
+      scroll-behavior:smooth;
+    }
+    header {
+      position:fixed;
+      top:0;
+      width:100%;
+      background:var(--card);
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      z-index:999;
+    }
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      padding:14px 0;
+    }
+    nav a {
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover { text-decoration:underline; }
+    .container {
+      max-width:900px;
+      margin:0 auto;
+      padding:100px 32px 32px 32px;
+    }
+    h1,h2 {
+      color:var(--accent);
+      margin-top:32px;
+    }
+    .section { margin-top:48px; }
+    .edu-list, .award-list { display:grid; gap:14px; }
+    .card {
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:16px 20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+    .dates {
+      font-weight:600;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .meta { color:var(--muted); margin:4px 0 10px 0; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    ul { padding-left:20px; }
+    li { margin-bottom:6px; }
+    .label { font-weight:600; color:var(--accent); }
+    footer {
+      text-align:center;
+      color:var(--muted);
+      margin-top:50px;
+      font-size:14px;
+      padding-bottom:40px;
+    }
+
+    /* ✅ 双列布局：Research Interests + Education */
+    .research-edu {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .research-box, .edu-box {
+      flex: 1;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      min-width: 300px;
+    }
+
+    /* ✅ Research Interests 样式 */
+    #research ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ✅ Education 部分样式 */
+    .edu-entry {
+      margin-bottom: 14px;
+    }
+    .edu-entry img {
+      width: 28px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ✅ Publications 样式 */
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .pub-item {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 16px 20px;
+      transition: transform 0.2s ease;
+    }
+    .pub-item:hover { transform: scale(1.01); }
+    .pub-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: #222;
+    }
+    .pub-icon {
+      flex-shrink: 0;
+      font-size: 18px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .pub-header-text { flex: 1; }
+    .pub-header-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pub-header-text a:hover { text-decoration: underline; }
+    .pub-abstract {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+	/* ✅ About section layout */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap; /* 小屏幕自动换行 */
+  flex-direction: row-reverse; /* 👈 反转方向：图片在左，文字在右 */
+}
+
+.about-text {
+  flex: 1 1 60%;
+}
+
+.about-photo img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05);
+}
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#about">🏠About</a>
+      <a href="#research">🧑‍🎓Research & Education</a>
+      <a href="#publications">📚Publications</a>
+      <a href="#awards">🏆Awards</a>
+	  <a href="#reviewer">📜Academic Service</a>
+      <a href="#contact">📞Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+<!-- About -->
+<section id="about" class="about-section">
+  <div class="about-content">
+    <div class="about-text">
+      <h1>Cai Xinkai</h1>
+      <p>
+        <strong>Graduate Student, Xiamen University</strong><br>
+        Biological & Pharmaceutical Engineering<br>
+        Email:
+        <a href="mailto:caixinkai2003@163.com">caixinkai2003@163.com</a>
+      </p>
+    </div>
+    <div class="about-photo">
+      <img src="images/me.jpg" alt="Cai Xinkai Portrait" />
+    </div>
+  </div>
+</section>
+
+
+    <!-- Research & Education -->
+    <section id="research" class="section">
+      <h2>🧑‍🎓Research Interests & Education</h2>
+      <div class="research-edu">
+        <!-- Research Interests -->
+        <div class="research-box">
+          <h3>Research Interests</h3>
+          <ul>
+            <li>📈Artificial intelligence for predicting specific biological macromolecule functions</li>
+            <li>🔍Mining and characterization of functional genes</li>
+            <li>🧬Analysis of genomics, transcriptomics, and metabolomics data</li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="edu-box">
+          <h3>Education</h3>
+          <div class="edu-entry">
+            <div class="dates">2025 – Present</div>
+            <div><img src="images/xmu.jpg" alt="XMU Logo"><strong>Xiamen University</strong><br>
+            Master of Engineering (M.Eng.) — Biological & Pharmaceutical Engineering<br>
+            <span class="label">Advisor:</span> Liu Wen (刘文)</div>
+          </div>
+
+          <div class="edu-entry">
+            <div class="dates">2021 – 2025</div>
+            <div><img src="images/fafu.jpg" alt="FAFU Logo"><strong>Fujian Agriculture and Forestry University</strong><br>
+            Bachelor of Science (B.Sc.) — Bioinformatics<br>
+            <span class="label">Advisor:</span> Zheng Ping (郑平)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="section">
+      <h2>📚Publications</h2>
+      <ol class="pub-list" reversed>
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              Zheng P, Wu J, Li D, Xie S, <strong>Cai X</strong>, Xiao Q, et al. Comparative Metabolomics Analysis of Four Pineapple (<em>Ananas comosus</em> L. Merr) Varieties with Different Fruit Quality. <em>Plants (Basel)</em>. 2025;14(15). 
+              <a href="https://doi.org/10.3390/plants14152400" target="_blank">DOI</a>
+            </div>
+          </div>
+  <div class="pub-abstract">
+    This study conducted a comparative metabolomic analysis of four pineapple varieties: “Comte de Paris” (BL) and three Taiwan-introduced cultivars—“Tainong No. 11” (XS), “Tainong No. 23” (MG), and “Tainong No. 13” (DM). A total of 551 metabolites were identified, among which 231 (including major sugars such as sucrose, glucose, and fructose, and key acids such as citric, malic, and quinic acids) showed no significant differences among varieties, indicating that all in-season fruits can achieve balanced sugar–acid accumulation under suitable conditions. The differentially accumulated metabolites (DAMs) mainly belonged to phenolic acids, flavonoids, amino acids and their derivatives, and alkaloids, but each variety exhibited distinct metabolic preferences: 
+    <ul>
+      <li><strong>MG:</strong> was enriched in branched-chain amino acids and multiple flavonoids, phenolic acids, lignans, and coumarins, contributing to its unique flavor and nutritional richness.</li>
+      <li><strong>XS:</strong> showed high levels of aromatic amino acids, phenolic acids, and lignans/coumarins, associated with its distinctive taste.</li>
+      <li><strong>DM:</strong> exhibited dominant accumulation of jasmonic acid, potentially enhancing its adaptability to low temperatures during autumn and winter.</li>
+      <li><strong>BL:</strong> contained the highest levels of L-ascorbic acid and several abundant flavonoids, offering strong antioxidant potential.</li>
+    </ul>
+    Overall, these findings provide valuable insights for the promotion of different pineapple varieties and for guiding metabolome-based breeding and improvement programs.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              <strong>Cai X#</strong>, Li D#, Liu C#, Chen J, Wei X, Hu S, et al. Identification and characterization of <em>GRAS</em> genes in passion fruit (<em>Passiflora edulis</em> Sims) revealed their roles in development regulation and stress response. <em>Plant Cell Reports</em>. 2025;44(2). 
+              <a href="https://doi.org/10.1007/s00299-025-03432-x" target="_blank">DOI</a>
+            </div>
+          </div>
+   <div class="pub-abstract">
+      <em>GRAS</em> genes play important roles in various biological processes, including plant growth, flower and fruit development, and responses to abiotic stresses. In this study, a comprehensive analysis of the GRAS gene family in passion fruit (<em>Passiflora edulis</em> Sims) was performed. The results showed that members of the DLT, PAT1, and LISCL subfamilies share similar unstructured N-terminal regions and 3D structures, which correlate with comparable tissue-specific expression patterns. Even within the same subfamily (e.g., DELLA), PeGRAS genes with different N-terminal features exhibited distinct expression profiles.    <ul>
+      <li><strong>Gene Family:</strong> A total of 29 <em>GRAS</em> genes (<em>PeGRAS1</em>–<em>PeGRAS29</em>) were identified and classified into ten subfamilies. Compared with Arabidopsis, passion fruit lacks members of the LAS subfamily but contains a rice-specific Os4-like gene (<em>PeGRAS9</em>).</li>
+      <li><strong>Protein Structure:</strong> PeGRAS proteins possess conserved C-terminal motifs, while their N-terminal regions vary in length and sequence composition.</li>
+      <li><strong>Gene Expression:</strong> Members of the PAT1 subfamily and several other <em>PeGRAS</em> genes are involved in stress-response pathways, with <em>PeGRAS19</em> and <em>PeGRAS26</em> potentially regulating cold tolerance, and <em>PeGRAS25</em> and <em>PeGRAS28</em> associated with drought resistance.</li>
+      <li><strong>Regulatory Network:</strong> Most PeGRAS promoters exhibit a strong preference for BBR–BPC binding motifs, and multiple miRNAs, particularly miRNA171, are predicted to regulate many of the <em>PeGRAS</em> genes.</li>
+    </ul>
+    These findings provide insights into the subfamily classification, protein structure, expression patterns, and regulatory roles of GRAS genes in passion fruit and highlight candidate genes for molecular breeding aimed at improving stress tolerance.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              Lin J#, Wu J#, Zhang D, <strong>Cai X</strong>, Du L, Lu L, et al. The GRAS gene family and its roles in pineapple (<em>Ananas comosus</em> L.) developmental regulation and cold tolerance. <em>BMC Plant Biology</em>. 2024;24(1). 
+              <a href="https://doi.org/10.1186/s12870-024-05913-9" target="_blank">DOI</a>
+            </div>
+          </div>
+  <div class="pub-abstract">
+      Pineapple (<em>Ananas comosus</em> L.) is an economically important tropical fruit crop, whose growth and development are significantly affected by low temperatures. The plant-specific GRAS gene family plays crucial roles in various processes, including flower and fruit development as well as stress responses. However, the functions of the GRAS family in pineapple have not yet been systematically analyzed. In this study, 43 <em>AcGRAS</em> genes were identified in the pineapple genome; these genes are unevenly distributed across 19 chromosomes and 6 scaffolds and were designated <em>AcGRAS01</em> to <em>AcGRAS43</em> based on their chromosomal positions. Phylogenetic analysis classified these genes into 14 subfamilies: OS19, HAM-1, HAM-2, SCL4/7, LISCL, SHR, PAT1, DLT, LAS, SCR, SCL3, OS43, OS4, and DELLA.    <ul>
+      <li><strong>Gene Structure:</strong> 60.5% of <em>AcGRAS</em> genes are intronless.</li>
+      <li><strong>Comprehensive Expression Profiles:</strong> <em>AcGRAS</em> genes are primarily expressed in specific floral organs, fruit tissues, or developmental stages, indicating functional diversity during pineapple development. Moreover, most AcGRAS genes are induced by cold stress, although different members appear to play distinct roles in short-term versus long-term cold adaptation.</li>
+      <li><strong>Special Expression Patterns:</strong> Notably, most members of the PAT1 subfamily are preferentially expressed during late petal development and are upregulated under cold stress, suggesting specialized roles in petal development and cold response. In contrast, no consistent expression patterns were observed among genes of other subfamilies, indicating that diverse regulatory factors—such as miRNAs, transcription factors, and cis-regulatory elements—may contribute to the functional diversification of <em>AcGRAS</em> members, even within the same subfamily.</li>
+    </ul>
+    In summary, this study provides the first comprehensive analysis of the GRAS gene family in pineapple, identifying 43 <em>AcGRAS</em> genes and revealing their diverse roles in development and stress responses. Special emphasis was placed on the PAT1 subfamily for its unique functions in petal development and cold response.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              An C#, Liao J#, Lu L#, <strong>Cai X</strong>, Liu R, Chen S, et al. From gene expression to flower patterns: genome-wide characterization of the MADS-box gene family in passion fruit (<em>Passiflora edulis</em>). <em>Tropical Plants</em>. 2024;3(1):0-. 
+              <a href="https://doi.org/10.48130/tp-0024-0004" target="_blank">DOI</a>
+            </div>
+          </div>
+  <div class="pub-abstract">
+Passion fruit (<em>Passiflora edulis</em>) is an economically valuable tropical fruit crop, renowned for its nutrient-rich juice, fragrant aroma, and vibrant flowers with a unique floral structure called the corona. These distinctive floral features make passion fruit an excellent candidate for studying flower organ development. <em>MADS-box</em> genes play crucial roles in various aspects of plant growth and development, particularly in floral morphogenesis. In this study, 52 <em>MADS-box</em> genes were identified in the passion fruit genome.    <ul>
+      <li><strong>Phylogenetic Analysis</strong> The <em>PeMADS</em> genes were classified into two main groups: Type I (Mα, Mβ, Mγ) and Type II (MIKCC, MIKC*). Compared with Arabidopsis, the passion fruit genome contains significantly fewer Type I <em>MADS-box</em> genes, which may contribute to the reduced gene number within this family.</li>
+      <li><strong>ABC(D)E Model</strong> Regulation of petals and stamens in passion fruit is similar to that in Arabidopsis, but differences were observed in the carpels and sepals. Different filiform coronas are mainly controlled by B-, C(D)-, and E-class genes, supporting the hypothesis that the filiform corona may have originated from stamens.</li>
+      <li><strong>Expression Patterns</strong> <em>PeMADS</em> genes are involved in the development of non-floral tissues and/or in plant hormone and stress responses. The presence of multiple cis-regulatory elements in the promoters of <em>PeMADS</em> genes, related to growth/development, hormones, and stress responses, is likely associated with their diverse regulatory functions.</li>
+    </ul>
+    This study provides valuable insights into the MADS-box gene family in passion fruit and their roles in floral structure development. These findings lay a foundation for the breeding of passion fruit varieties with unique ornamental traits.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              Mo W, Hong C, Gui F, Hong C, <strong>Cai X</strong>, Guan X, et al. Inhibition mechanism of water extract from spent mushroom substrate against <em>Phytophthora infestans</em> in potatoes. <em>J Chin Agric Sci Technol</em>. 2024;26(5):129–137. 
+              <a href="https://www.nkdb.net/CN/Y2024/V26/I5/129" target="_blank">Link</a>
+            </div>
+          </div>
+  <div class="pub-abstract">
+Spent mushroom substrate (SMS) is the residual material left after mushroom cultivation and is rich in inorganic salts and organic matter. In this study, a water extract from spent mushroom substrate (WESMS) was prepared using hot water extraction. Its UV absorption characteristics, surface charge, and particle size in water were characterized using a UV spectrophotometer and a Zeta potential/particle size analyzer. The inhibitory effect of WESMS on the pathogenic oomycete Phytophthora infestans was evaluated using the plate infiltration method and the cross-measurement diameter method. The extent of damage to pathogen cells was observed via optical microscopy and scanning electron microscopy, and agarose gel electrophoresis was used to analyze the effect of WESMS on pathogen DNA.    <ul>
+      <li><strong>Material Characterization</strong> WESMS showed absorption in the UV-A (315–400 nm), UV-B (280–315 nm), and UV-C (100–280 nm) ranges. The particle size of WESMS in water was 3,649.27 nm.</li>
+      <li><strong>Antimicrobial Test</strong> WESMS inhibited the growth of the pathogen, and the inhibitory effect increased with higher extract concentrations. At a high volume concentration of 6.25% WESMS, the inhibition rate approached 100%.</li>
+      <li><strong>Mechanism Analysis</strong> After WESMS treatment, pathogen hyphae became more twisted and flattened, with significantly increased folding, indicating notable cellular damage. DNA bands from WESMS-treated samples were fainter than those in the control, and the degree of DNA damage was positively correlated with WESMS concentration.</li>
+    </ul>
+    These results provide a scientific basis and technical support for the resourceful utilization of spent mushroom substrate and its effective control of potato late blight.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📙</span>
+            <div class="pub-header-text">
+              Huang H, Guo X, Xu J, Li Q, <strong>Cai X</strong>, Guan X, et al. Construction and antibacterial effect evaluation of nano TiO₂-loaded moxifloxacin hydrochloride system. <em>J Agric Biotechnol</em>. 2024;32(2):484–492. 
+              <a href="https://journal05.magtech.org.cn/Jwk_ny/EN/10.3969/j.issn.1674-7968.2024.02.019" target="_blank">Link</a>
+            </div>
+          </div>
+  <div class="pub-abstract">
+Moxifloxacin hydrochloride (MOX) is a clinically widely used broad-spectrum quinolone antibiotic. To investigate the effect of nanocarriers on its antibacterial activity, this study loaded MOX onto titanium dioxide nanoparticles (TiO₂) via surface adsorption and analyzed the chemical characterization of the resulting TiO₂-MOX as well as its antibacterial activity and cytopathological effects against <em>Escherichia coli</em>.    <ul>
+      <li><strong>Physical Characterization</strong> MOX was physically encapsulated by TiO₂ nanoparticles. As the TiO₂ content in the formulation increased from 0.5 mg to 1.0 mg, the drug loading increased by approximately 20%, and the encapsulation efficiency increased by about 40%. The TiO₂ nanoparticles in TiO₂-MOX facilitated the effective release of the active MOX component.</li>
+      <li><strong>Antibacterial Assay</strong> The synthesized TiO₂ nanoparticles exhibited moderate antibacterial activity against E. coli (inhibition rate of 22.8%). After loading MOX onto TiO₂, the antibacterial rate of MOX against E. coli increased from 28.0% (free MOX) to 73.4%.</li>
+      <li><strong>Mechanism Analysis</strong> Cytopathological observations revealed that free MOX caused minimal damage to the E. coli cell membrane, whereas TiO₂ and TiO₂-loaded MOX caused significant cell membrane disruption, leading to bacterial inactivation.</li>
+    </ul>
+    The TiO₂-MOX nanoparticles demonstrated efficient drug loading and release and significantly enhanced the antibacterial activity of MOX, providing a scientific basis for the further use of TiO₂ as a drug carrier in clinical applications.
+  </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📙</span>
+            <div class="pub-header-text">
+              Hou Z#, Liang J#, <strong>Cai X</strong>, Lin J, Wang X, Liu R, et al. <em>PeHVA22</em> gene family in passion fruit (<em>Passiflora edulis</em>): initial characterization and expression profiling diversity. <em>Frontiers in Plant Science</em>. 2024;14. 
+              <a href="https://doi.org/10.3389/fpls.2023.1279001" target="_blank">DOI</a>
+            </div>
+          </div>
+ <div class="pub-abstract">
+Passion fruit (<em>Passiflora edulis</em>) is an economically valuable fruit crop that is highly susceptible to adverse climatic conditions. <em>HVA22</em> genes are known to be ABA- and stress-inducible and play crucial roles in stress responses and growth regulation in various eukaryotes. In this study, six <em>HVA22</em> genes (<em>PeHVA22s</em>) were identified in the passion fruit genome, all predicted to localize in the endoplasmic reticulum.    <ul>
+      <li><strong>Phylogenetic Analysis</strong> All <em>PeHVA22s</em> were classified into four subgroups. Genes clustered within the same subgroup displayed relatively conserved gene structures, while <em>PeHVA22s</em> from different subgroups showed significant structural differences. <em>PeHVA22A</em> and <em>PeHVA22C</em> clustered closely with group II barley <em>HVA22</em> genes and were induced by ABA and drought treatment, suggesting conserved functions similar to those in barley.</li>
+      <li><strong>Stress Response</strong> Most <em>PeHVA22s</em> were upregulated after drought treatment, but their expression was suppressed under salt, low-temperature, and high-temperature conditions, indicating a unique role in drought response.</li>
+      <li><strong>Tissue-Specific Expression</strong> <em>PeHVA22</em> genes exhibited tissue-specific expression patterns, except for <em>PeHVA22B</em>, which may represent a pseudogene. Notably, <em>PeHVA22C</em>, <em>PeHVA22E</em>, and <em>PeHVA22F</em> were primarily expressed in fruits, suggesting involvement in fruit development. Almost all <em>PeHVA22s</em> showed differential expression at various stages of stamen or ovule development, implying roles in sexual reproduction in passion fruit.</li>
+    </ul>
+The complex functions of <em>PeHVA22s</em> are likely regulated by multiple factors, including transcription factors and cis-regulatory elements related to plant growth, development, hormones, and stress responses. These observations indicate that <em>PeHVA22s</em> may play conserved roles in ABA response and drought tolerance while participating in the regulation of growth and floral development in passion fruit.  </div>
+
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📗</span>
+            <div class="pub-header-text">
+              Hou Z#, <strong>Cai X#</strong>, Wu J, Lu L, Liu C, Zhang Y, et al. Identification and Characterization of <em>Hva22</em> Genes in Pineapple (<em>Ananas comosus</em> L.) Revealed Their Roles in Development Regulation and Cold Stress Response. 2024. 
+              <a href="https://doi.org/10.2139/ssrn.4966051" target="_blank">DOI</a>
+            </div>
+          </div>
+ <div class="pub-abstract">
+Pineapple (<em>Ananas comosus</em> L.) is an economically important tropical fruit crop, but its cultivation is highly sensitive to low temperatures. This study represents the first systematic analysis of the abscisic acid (ABA) and stress-inducible HVA22 gene family in pineapple.    <ul>     
+      <li><strong>11 members:</strong> Identified based on chromosomal location and named <em>AcHVA22A</em> to <em>AcHVA22K</em>. Subcellular localization analysis showed that most AcHVA22 proteins are located in the plasma membrane, cytoplasm, and nucleus.</li>
+      <li><strong>4 subfamilies:</strong> Phylogenetic analysis grouped all <em>AcHVA22</em> genes into four distinct clades. Structural analysis indicated that members within the same clade share certain similarities. However, even within a clade, the presence of multiple regulatory factors—including cis-regulatory elements, transcription factors, and miRNAs—may contribute to the functional diversity of <em>AcHVA22</em> genes.</li>
+      <li><strong>Abiotic stress responses:</strong> Most <em>AcHVA22</em> genes responded consistently to ABA, GA, and drought treatments, whereas their responses to high and low temperatures varied.</li>
+      <li><strong>Conservation across varieties:</strong> <em>AcHVA22C</em>, <em>D</em>, <em>E</em>, <em>G</em>, <em>I</em>, and <em>K</em> were upregulated under both short-term and long-term cold treatments in two different pineapple varieties, indicating their potential key roles in cold stress tolerance.</li>
+	</ul>
+These findings provide valuable insights for functional studies of <em>AcHVA22</em> genes and offer a theoretical basis for breeding cold-tolerant pineapple varieties. </div>
+
+		</li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📙</span>
+            <div class="pub-header-text">
+              Hong C, Hong C, Mo W, <strong>Cai X</strong>, Gui F, Guan X, et al. Study on the adsorption of heavy metal nickel by biochar prepared from three kinds of bran. <em>Chin Agric Sci Bull</em>. 2023;39(32):40–46. 
+              <a href="https://doi.org/10.11924/j.issn.1000-6850.casb2023-0228" target="_blank">DOI</a>
+            </div>
+          </div>
+ <div class="pub-abstract">
+To investigate the treatment of heavy metal nickel and the problem of excessive waste of spent mushroom substrate, biochars were prepared using Pleurotus eryngii substrate (PEBC), Pleurotus geesteranus substrate (PGBC), and Lentinula edodes substrate (LEBC) as raw materials. Their structures were characterized using scanning electron microscopy (SEM), X-ray powder diffraction (XRD), and Brunauer–Emmett–Teller (BET) surface area analysis, while Zeta potential measurements were conducted to explore the adsorption mechanism. Adsorption experiments were performed to compare the effects of the three mushroom substrate biochars on nickel ion removal.    <ul>
+      <li><strong>Physical Characterization</strong> All three biochars exhibited irregular pores and surfaces with abundant attached mineral crystals.</li>
+      <li><strong>Adsorption Performance</strong> Overall, PEBC showed the best adsorption performance, with a removal rate exceeding 99% and a maximum equilibrium adsorption capacity of 122.89 mg/g.</li>
+    </ul>
+This study demonstrates that using discarded mushroom substrate for nickel removal not only promotes the resourceful utilization of the substrate but also confirms its broad potential for treating nickel-contaminated water.  </div>
+
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-header" onclick="toggleAbstract(this)">
+            <span class="pub-icon">📘</span>
+            <div class="pub-header-text">
+              Zheng P, Shen M, Liu R, <strong>Cai X</strong>, Lin J, Wang L, et al. Revealing Further Insights into Astringent Seeds of Chinese Fir by Integrated Metabolomic and Lipidomic Analyses. <em>Int J Mol Sci</em>. 2023;24(20). 
+              <a href="https://doi.org/10.3390/ijms242015103" target="_blank">DOI</a>
+            </div>
+          </div>
+ <div class="pub-abstract">
+Chinese fir (<em>Cunninghamia lanceolata</em> (Lamb.) Hook.) is an important afforestation species and timber resource in southern China. However, seed abortion and a high proportion of astringent seeds significantly reduce the yield and quality of elite seeds, causing substantial economic losses. The development of astringent seeds is accompanied by marked physiological and biochemical changes.
+
+In this study, for the first time, a combined lipidomic and metabolomic analysis was conducted to systematically investigate the characteristics of astringent seeds. A total of 744 metabolites and 616 lipids were detected, among which 489 differential metabolites and 101 differential lipids were identified.    <ul>
+      <li><strong>Metabolite Changes:</strong> Most flavonoids and tannins, as well as proline and γ-aminobutyric acid (GABA), showed increased accumulation. The levels of amino acids and their derivatives, saccharides and alcohols, organic acids, and nucleotides and their derivatives were reduced.</li>
+      <li><strong>Lipid Changes:</strong> Lipid unsaturation levels decreased significantly, indicating oxidative stress in the cells.</li>
+      <li><strong>Lipid Subclass Changes</strong> Most lipids related to energy storage (triglycerides, diglycerides) and cell membrane composition (phosphatidic acid, phosphatidylcholine, phosphatidylethanolamine) decreased significantly. The only lipid subclass showing increased accumulation was sphingosine phosphate (SoP).</li>
+      <li><strong>Hormone and Signaling Molecule Changes</strong> Indole-3-acetic acid (IAA) levels decreased, whereas salicylic acid (SA) levels increased. Both SA and SoP were closely associated with programmed cell death in astringent seeds.</li>
+    </ul>
+Changes in metabolites and lipids generally reflect cellular system disruption or cell death, leading to a reduction in viable cells. Based on the metabolomic and lipidomic data, this study proposes a potential model for the development of astringent seeds in Chinese fir. These findings provide new insights into the physiological mechanisms underlying astringent seeds and offer valuable biomarkers for their identification.  </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Honors & Awards -->
+    <section id="awards" class="section">
+      <h2>🏆Honors & Awards</h2>
+      <ul class="award-list">
+        <li>Outstanding Undergraduate Thesis (Design), Fujian Agriculture and Forestry University, Class of 2025</li>
+		<li>3rd Prize, 9th National College Student Life Sciences Competition (Scientific Inquiry Category) (2024.7)</li>
+		<li>Excellent Student Scholarship (Third Class), Fujian Agriculture and Forestry University (2022–2023)</li>
+        <li>3rd Prize, 18th “Challenge Cup” National Undergraduate Extracurricular Academic Science and Technology Works Competition (2023.12)</li>
+		<li>Completed Project, National College Student Innovation and Entrepreneurship Training Program (China) (2023.7)</li>
+		<li>3rd Prize, 8th National College Student Life Sciences Competition (Innovation & Entrepreneurship Category) (2023.6)</li>
+        <li>Grand Prize, 16th Fujian Province “Challenge Cup” Competition (2023.5)</li>
+        <li>1st Prize, 2nd “Challenge Cup” Plant Protection College Science & Technology Invention Competition (2023.2)</li>
+      </ul>
+    </section>
+	
+	<!-- Reviewer -->
+   <section id="reviewer">
+  <h2>📜Academic Service</h2>
+  <p><strong>Reviewer:</strong> <em>BMC Plant Biology</em></p>
+   </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <h2>📞Contact</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:caixinkai2003@163.com">caixinkai2003@163.com</a></li>
+        <li><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Cai-Xinkai-2" target="_blank">Profile</a></li>
+        <li><strong>ORCID:</strong> <a href="https://orcid.org/0009-0001-1313-7765" target="_blank">0009-0001-1313-7765</a></li>
+        <li><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=9k4x-9AAAAAJ&hl=en" target="_blank">Scholar Page</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/CaiXinkai" target="_blank">CaiXinkai</a></li>
+      </ul>
+    </section>
+
+    <footer>© 2025 Cai Xinkai</footer>
+  </div>
+
+  <script>
+    function toggleAbstract(header) {
+      const abstract = header.nextElementSibling;
+      abstract.style.display = abstract.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
