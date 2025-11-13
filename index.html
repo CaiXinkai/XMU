@@ -155,38 +155,49 @@
     }
 	/* ✅ About section layout */
 .about-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  margin-top: 48px;
 }
 
 .about-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 32px;
-  flex-wrap: wrap; /* 小屏幕自动换行 */
-  flex-direction: row-reverse; /* 👈 反转方向：图片在左，文字在右 */
 }
 
+/* 宽屏：图片在左，文字在右（row-reverse 即可） */
+@media (min-width: 769px) {
+  .about-content {
+    flex-direction: row-reverse;
+  }
+}
+
+/* 窄屏：上下堆叠，图片在上，文字在下 */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  /* 显式指定顺序：图片先 → 上方；文字后 → 下方 */
+  .about-photo  { order: 1; }
+  .about-text   { order: 2; }
+}
+
+/* 文字块自适应 */
 .about-text {
   flex: 1 1 60%;
 }
 
+/* 圆形照片 + 悬停放大 */
 .about-photo img {
   width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  transition: transform .3s ease;
 }
-
 .about-photo img:hover {
   transform: scale(1.05);
 }
-
 
   </style>
 </head>
@@ -513,5 +524,6 @@ Changes in metabolites and lipids generally reflect cellular system disruption o
   </script>
 </body>
 </html>
+
 
 
