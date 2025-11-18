@@ -1,0 +1,193 @@
+    :root {
+      --accent:#2b6cb0;
+      --muted:#555;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --radius:12px;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:#111;
+      scroll-behavior:smooth;
+    }
+    header {
+      position:fixed;
+      top:0;
+      width:100%;
+      background:var(--card);
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      z-index:999;
+    }
+    nav {
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      padding:14px 0;
+    }
+    nav a {
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+    nav a:hover { text-decoration:underline; }
+    .container {
+      max-width:900px;
+      margin:0 auto;
+      padding:100px 32px 32px 32px;
+    }
+    h1,h2 {
+      color:var(--accent);
+      margin-top:32px;
+    }
+    .section { margin-top:48px; }
+    .edu-list, .award-list { display:grid; gap:14px; }
+    .card {
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:16px 20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    }
+    .dates {
+      font-weight:600;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .meta { color:var(--muted); margin:4px 0 10px 0; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    ul { padding-left:20px; }
+    li { margin-bottom:6px; }
+    .label { font-weight:600; color:var(--accent); }
+    footer {
+      text-align:center;
+      color:var(--muted);
+      margin-top:50px;
+      font-size:14px;
+      padding-bottom:40px;
+    }
+
+    /* ✅ 双列布局：Research Interests + Education */
+    .research-edu {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .research-box, .edu-box {
+      flex: 1;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      min-width: 300px;
+    }
+
+    /* ✅ Research Interests 样式 */
+    #research ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ✅ Education 部分样式 */
+    .edu-entry {
+      margin-bottom: 14px;
+    }
+    .edu-entry img {
+      width: 28px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* ✅ Publications 样式 */
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .pub-item {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 16px 20px;
+      transition: transform 0.2s ease;
+    }
+    .pub-item:hover { transform: scale(1.01); }
+    .pub-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: #222;
+    }
+    .pub-icon {
+      flex-shrink: 0;
+      font-size: 18px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .pub-header-text { flex: 1; }
+    .pub-header-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pub-header-text a:hover { text-decoration: underline; }
+    .pub-abstract {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+	/* ✅ About section layout */
+.about-section {
+  margin-top: 48px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* 宽屏：图片在左，文字在右（row-reverse 即可） */
+@media (min-width: 769px) {
+  .about-content {
+    flex-direction: row-reverse;
+  }
+}
+
+/* 窄屏：上下堆叠，图片在上，文字在下 */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  /* 显式指定顺序：图片先 → 上方；文字后 → 下方 */
+  .about-photo  { order: 1; }
+  .about-text   { order: 2; }
+}
+
+/* 文字块自适应 */
+.about-text {
+  flex: 1 1 60%;
+}
+
+/* 圆形照片 + 悬停放大 */
+.about-photo img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  transition: transform .3s ease;
+}
+.about-photo img:hover {
+  transform: scale(1.05);
+}
