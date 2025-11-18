@@ -69,18 +69,23 @@
       padding-bottom:40px;
     }
 
-    .page-bg {
-  position: fixed;
+.page-bg {
+  position: fixed;       /* 固定在页面上，不随滚动移动 */
   top: 0;
   left: 0;
-  width: auto;   /* 保持原图比例 */
+  width: auto;           /* 保持原始比例 */
   height: auto;
-  max-width: 100%;
-  z-index: -1;
-  pointer-events: none;
+  max-width: 100%;       /* 防止超出页面宽度 */
+  z-index: -1;           /* 置于内容下方 */
+  pointer-events: none;  /* 不影响鼠标操作 */
+
   /* 底部渐变透明 */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
+
 
     /* ✅ 双列布局：Research Interests + Education */
     .research-edu {
@@ -204,4 +209,5 @@
 .about-photo img:hover {
   transform: scale(1.05);
 }
+
 
