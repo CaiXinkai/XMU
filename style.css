@@ -70,25 +70,16 @@
     }
 
 .page-bg {
-  position: fixed; /* 固定在屏幕背景 */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('images/bg.jpg'); /* 背景图路径 */
-  background-size: cover; /* 完全覆盖 */
-  background-position: center center; /* 居中显示 */
-  background-repeat: no-repeat;
-  z-index: -1; /* 保证内容在上层显示 */
+  height: 100vh;
+  background: url('images/XMU_bg.png') no-repeat center top;
+  background-size: cover;
+  z-index: -1;
 }
 
-/* 可选：给内容添加一点 padding 或 margin，避免遮挡导航 */
-.container {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
-  color: white; /* 如果背景是深色，这样文字更清晰 */
-}
 
 
 
@@ -216,6 +207,7 @@
 .about-photo img:hover {
   transform: scale(1.05);
 }
+
 
 
 
