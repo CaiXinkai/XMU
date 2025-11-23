@@ -224,10 +224,11 @@
 }
 
 
-/* 解决导航栏遮挡标题问题 */
-section {
-  scroll-margin-top: 100px;   /* 与 .container 的 padding-top 100px 对齐 */
+section[id], h2[id] {
+  scroll-margin-top: 100px;
 }
+
+
 
 
 
