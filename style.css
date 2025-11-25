@@ -273,6 +273,7 @@ section[id], h2[id] {
   position: relative;
   z-index: 1;
   max-width: 90%;
+  line-height: 1.8;
 }
 
 .timeline-date { font-weight: bold; margin-bottom: 8px; color: var(--accent); }
@@ -324,6 +325,7 @@ section[id], h2[id] {
   object-fit: contain;        /* 防止图片变形 */
   display: block;
 }
+
 
 
 
