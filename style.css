@@ -251,7 +251,7 @@ section[id], h2[id] {
   z-index: 0;
 }
 
-/* 时间点 */
+/* 每个事件 */
 .timeline-item {
   position: relative;
   width: 50%;
@@ -260,38 +260,25 @@ section[id], h2[id] {
 }
 
 /* 左右交错 */
-.timeline-item.left {
-  left: 0;
-  text-align: right;
-}
-
-.timeline-item.right {
-  left: 50%;
-  text-align: left;
-}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
 
 /* 内容框靠近中线 */
-.timeline-item.left .timeline-content {
-  margin-right: 60px;
-}
+.timeline-item.left .timeline-content { margin-right: 60px; }
+.timeline-item.right .timeline-content { margin-left: 60px; }
 
-.timeline-item.right .timeline-content {
-  margin-left: 60px;
-}
-
-/* 圆点 */
-.timeline-item::before {
-  content: '';
+/* 独立圆点 */
+.timeline-dot {
   position: absolute;
-  top: 20px;          /* 固定距离，保证圆点和中线对齐 */
-  left: 50%;          /* 中线水平居中 */
+  top: 20px;           /* 固定圆点垂直位置 */
+  left: 50%;           /* 中线水平居中 */
   transform: translateX(-50%);
   width: 16px;
   height: 16px;
   background-color: #ffffff;
   border: 4px solid var(--accent);
   border-radius: 50%;
-  z-index: 10;        /* 在卡片上方 */
+  z-index: 10;
 }
 
 /* 时间轴内容框 */
@@ -300,7 +287,7 @@ section[id], h2[id] {
   padding: 16px 20px;
   border-radius: var(--radius);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  display: inline-block;  /* 保持 inline-block 避免圆点偏移 */
+  display: inline-block;
   position: relative;
   z-index: 1;
   max-width: 90%;
@@ -312,15 +299,10 @@ section[id], h2[id] {
   color: var(--accent);
 }
 
-.timeline-content h3 {
-  margin: 0 0 5px 0;
-}
+.timeline-content h3 { margin: 0 0 5px 0; }
+.timeline-content p { margin: 0; }
 
-.timeline-content p {
-  margin: 0;
-}
-
-/* 手机响应式：小屏时改为单列 */
+/* 手机响应式：单列布局 */
 @media (max-width: 768px) {
   .timeline-item {
     width: 100%;
@@ -331,13 +313,13 @@ section[id], h2[id] {
 
   .timeline-item.left .timeline-content,
   .timeline-item.right .timeline-content {
-    margin: 0 0 0 40px;
+    margin-left: 40px;
+    margin-right: 0;
   }
 
-  .timeline-item::before {
-    left: 20px;  /* 圆点靠左 */
-  }
+  .timeline-dot { left: 20px; }
 }
+
 
 
 
