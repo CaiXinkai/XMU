@@ -269,20 +269,15 @@ section[id], h2[id] {
 .timeline-item::before {
   content: '';
   position: absolute;
-  top: 24px; /* 节点垂直居中 */
+  top: 30px; /* 圆点垂直居中 */
   width: 16px;
   height: 16px;
-  background-color: var(--card); /* 圆点白色 */
-  border: 4px solid var(--accent); /* 节点边框颜色 */
+  background-color: var(--card);
+  border: 4px solid var(--accent);
   border-radius: 50%;
   z-index: 1;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.timeline-date {
-  font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .timeline-content {
@@ -290,8 +285,22 @@ section[id], h2[id] {
   padding: 12px 16px;
   border-radius: 8px;
   display: inline-block;
-  max-width: 95%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 阴影 */
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.timeline-item.left .timeline-content {
+  margin-right: 40px; /* 让左侧内容靠近中线 */
+}
+
+.timeline-item.right .timeline-content {
+  margin-left: 40px; /* 让右侧内容靠近中线 */
+}
+
+.timeline-date {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .timeline-content h3 {
