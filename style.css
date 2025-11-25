@@ -229,6 +229,7 @@ section[id], h2[id] {
 }
 
 /* Timeline 容器 */
+/* Timeline 容器 */
 .timeline-container {
   position: relative;
   max-width: 800px;
@@ -269,7 +270,7 @@ section[id], h2[id] {
   text-align: left;
 }
 
-/* 内容靠近中线 */
+/* 内容框靠近中线 */
 .timeline-item.left .timeline-content {
   margin-right: 60px;
 }
@@ -282,15 +283,15 @@ section[id], h2[id] {
 .timeline-item::before {
   content: '';
   position: absolute;
-  top: 20px;           /* 调整圆点垂直位置，可微调 */
-  left: 50%;
+  top: 20px;          /* 固定距离，保证圆点和中线对齐 */
+  left: 50%;          /* 中线水平居中 */
   transform: translateX(-50%);
   width: 16px;
   height: 16px;
   background-color: #ffffff;
   border: 4px solid var(--accent);
   border-radius: 50%;
-  z-index: 10;
+  z-index: 10;        /* 在卡片上方 */
 }
 
 /* 时间轴内容框 */
@@ -299,7 +300,7 @@ section[id], h2[id] {
   padding: 16px 20px;
   border-radius: var(--radius);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  display: inline-block;  /* 保持 inline-block，圆点对齐 */
+  display: inline-block;  /* 保持 inline-block 避免圆点偏移 */
   position: relative;
   z-index: 1;
   max-width: 90%;
@@ -318,4 +319,25 @@ section[id], h2[id] {
 .timeline-content p {
   margin: 0;
 }
+
+/* 手机响应式：小屏时改为单列 */
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    margin: 0 0 0 40px;
+  }
+
+  .timeline-item::before {
+    left: 20px;  /* 圆点靠左 */
+  }
+}
+
+
 
