@@ -229,7 +229,7 @@ section[id], h2[id] {
 }
 
 /* Timeline 容器 */
-/* Timeline 容器 */
+/* 时间轴容器 */
 .timeline-container {
   position: relative;
   max-width: 800px;
@@ -267,20 +267,6 @@ section[id], h2[id] {
 .timeline-item.left .timeline-content { margin-right: 60px; }
 .timeline-item.right .timeline-content { margin-left: 60px; }
 
-/* 独立圆点 */
-.timeline-dot {
-  position: absolute;
-  top: 20px;           /* 固定圆点垂直位置 */
-  left: 50%;           /* 中线水平居中 */
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  background-color: #ffffff;
-  border: 4px solid var(--accent);
-  border-radius: 50%;
-  z-index: 10;
-}
-
 /* 时间轴内容框 */
 .timeline-content {
   background-color: #ffffff;
@@ -302,7 +288,20 @@ section[id], h2[id] {
 .timeline-content h3 { margin: 0 0 5px 0; }
 .timeline-content p { margin: 0; }
 
-/* 手机响应式：单列布局 */
+/* 独立圆点 */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* 响应式：手机单列 */
 @media (max-width: 768px) {
   .timeline-item {
     width: 100%;
@@ -317,8 +316,9 @@ section[id], h2[id] {
     margin-right: 0;
   }
 
-  .timeline-dot { left: 20px; }
+  .timeline-dot { left: 20px !important; }
 }
+
 
 
 
