@@ -319,11 +319,12 @@ section[id], h2[id] {
 }
 
 .date-img {
-  width: 18px;                /* 自行调整 */
-  height: 18px;
+  width: 28px;                /* 自行调整 */
+  height: 28px;
   object-fit: contain;        /* 防止图片变形 */
   display: block;
 }
+
 
 
 
