@@ -358,7 +358,7 @@ section[id], h2[id] {
 
 
 .pub-abstract img {
-  width: 45px;                /* 自行调整 */
+  width: 60%;                /* 自行调整 */
   height: auto;
   display: block;
   margin: 12px auto;          /* 居中关键 */
@@ -366,6 +366,7 @@ section[id], h2[id] {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
+
 
 
 
